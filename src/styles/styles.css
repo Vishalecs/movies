@@ -1,0 +1,67 @@
+/* Styles for the main app container */
+.app {
+    font-family: sans-serif; /* Set a default font family */
+    margin: 0; /* Remove default margin from body */
+    padding: 20px; /* Add some padding to the app container */
+    display: flex; /* Allow components to stack vertically */
+    flex-direction: column; /* Stack components top to bottom */
+  }
+  
+  /* Styles for the NavBar component (assuming a horizontal navbar) */
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 10px 20px; /* Add some padding */
+  }
+  
+  /* Styles for buttons within the NavBar */
+  .nav-bar button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer;
+    background-color: #fff; /* White background for buttons */
+  }
+  
+  /* Styles for the AddMovieForm component (assuming a modal style) */
+  .add-movie-form {
+    position: fixed; /* Fix the form to the viewport */
+    top: 0;
+    left: 0; /* Position the form at top left */
+    width: 100%; /* Take up the entire width */
+    height: 100%; /* Take up the entire height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the form content */
+    z-index: 10; /* Ensure the form is on top of other elements */
+    /* Hide the form initially */
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out; /* Smooth transition effects */
+  }
+  
+  /* Styles for the AddMovieForm when shown */
+  .add-movie-form.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Styles for the actual form container within AddMovieForm */
+  .add-movie-form-container {
+    background-color: #fff; /* White background for the form */
+    padding: 20px;
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow */
+  }
+  
+  /* Styles for the MovieList component (assuming a grid layout) */
+  .movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Add some gap between movie items */
+    margin-top: 20px; /* Add some space above the list */
+  }
+  

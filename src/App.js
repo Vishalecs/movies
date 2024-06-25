@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchMovies } from './actions/movieActions';
+import NavBar from './components/NavBar';
+import AddMovieForm from './components/AddMovieForm';
+import MovieList from './components/MovieList';
+import './styles/styles.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [showAddMovieForm, setShowAddMovieForm] = useState(false);
+    const [showFavorites, setShowFavorites] = useState(false);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchMovies());
+    }, [dispatch]);
+
+    const handleAddMovieClick = () => {
+        setShowAddMovieForm(!showAddMovieForm);
+    };
+
+    return (
+        <div className="app">
+            <NavBar 
+                onAddMovieClick={handleAddMovieClick} 
+                showFavorites={showFavorites}
+                setShowFavorites={setShowFavorites}
+            />
+            {showAddMovieForm && <AddMovieForm />}
+            <MovieList showFavorites={showFavorites} />
+        </div>
+    );
+};
 
 export default App;
