@@ -1,0 +1,23 @@
+[33mcommit 0b97e6c810271bea65ff455d0c7958fe4dfb6a47[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Vishalecs <vishalsinghecs99@gmail.com>
+Date:   Mon Jul 1 17:43:10 2024 +0530
+
+    Your commit message
+
+[33mcommit 80e2fd3c344214fe9f125c5ddd6bddc8cb18182d[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Vishalecs <vishalsinghecs99@gmail.com>
+Date:   Wed Jun 26 06:21:08 2024 +0530
+
+    Added react-scripts and updated dependencies
+
+[33mcommit c69a40e6da2a17bd723dde5f5d902bf4c50530f2[m[33m ([m[1;31mold-origin/master[m[33m)[m
+Author: Vishalecs <vishalsinghecs99@gmail.com>
+Date:   Wed Jun 26 05:25:52 2024 +0530
+
+    Initial commit
+
+[33mcommit b01c91515ed1509417f5d9d27ec47fbb454739c9[m
+Author: Vishalecs <vishalsinghecs99@gmail.com>
+Date:   Tue Jun 25 17:41:30 2024 +0530
+
+    Initialize project using Create React App
