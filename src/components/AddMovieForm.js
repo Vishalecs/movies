@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addMovie } from '../actions/movieActions';
 import '../styles/addMovieForm.css'; // Import the CSS file
@@ -9,7 +9,7 @@ const AddMovieForm = ({ onClose }) => {
     const [year, setYear] = useState('');
     const [genre, setGenre] = useState('');
     const [imageUrl, setImageUrl] = useState('');
-    const [showForm, setShowForm] = useState(true); // State to manage form visibility
+    const [showForm, setShowForm] = useState(true);
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -31,13 +31,28 @@ const AddMovieForm = ({ onClose }) => {
         setYear('');
         setGenre('');
         setImageUrl('');
-        setShowForm(false); // Close the form after submission
-        onClose(); // Call the onClose function passed from the parent
+        setShowForm(false);
+        onClose();
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (event.target.closest('.form-container') === null) {
+                setShowForm(false);
+                onClose();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [onClose]);
 
     const closeForm = () => {
         setShowForm(false);
-        onClose(); // Call the onClose function passed from the parent
+        onClose();
     };
 
     return (
@@ -57,7 +72,6 @@ const AddMovieForm = ({ onClose }) => {
                     <input type="text" placeholder="Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} required />
                     <br />
                     <button type="submit">Add Movie</button>
-                    
                 </form>
             </div>
         </div>
