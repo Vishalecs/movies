@@ -19,6 +19,10 @@ const App = () => {
         setShowAddMovieForm(!showAddMovieForm);
     };
 
+    const closeAddMovieForm = () => {
+        setShowAddMovieForm(false);
+    };
+
     return (
         <div className="app">
             <NavBar 
@@ -26,7 +30,7 @@ const App = () => {
                 showFavorites={showFavorites}
                 setShowFavorites={setShowFavorites}
             />
-            {showAddMovieForm && <AddMovieForm />}
+            {showAddMovieForm && <AddMovieForm onClose={closeAddMovieForm} />}
             <MovieList showFavorites={showFavorites} />
         </div>
     );

@@ -7,96 +7,98 @@ import EditMovieForm from './EditMovieForm';
 import { getMovies } from '../selectors';
 import Rating from './Rating';
 
-const styles = `
-  /* styles/movieList.css */
-  
-  .movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .movie-card {
-    width: calc(25% - 20px); /* Four items per row with 20px gap */
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .movie-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .movie-card img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
-  }
-  
-  .movie-card .card-content {
-    padding: 16px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .movie-card h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333333;
-    text-align: center; /* Center title */
-  }
-  
-  .movie-card p {
-    margin: 0;
-    font-size: 14px;
-    color: #666666;
-    text-align: center; /* Center director, year, genre */
-  }
-  
-  .movie-card .icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-top: 1px solid #e0e0e0;
-    background-color: #f8f8f8;
-  }
-  
-  .movie-card .icons > * {
-    font-size: 16px;
-    color: #999999;
-    transition: color 0.2s ease-in-out;
-    cursor: pointer;
-  }
-  
-  .movie-card .icons > *:hover {
-    color: #333333;
-  }
+const styles =  `
+/* styles/movieList.css */
 
-  /* Centering h2 heading */
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333333;
-  }
-`;
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.movie-card {
+  width: calc(25% - 20px); /* Four items per row with 20px gap */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.movie-card .card-content {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center; /* Center title */
+}
+
+.movie-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #666666;
+  text-align: center; /* Center director, year, genre */
+}
+
+.movie-card .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f8f8f8;
+}
+
+.movie-card .icons > * {
+  font-size: 16px;
+  color: #999999;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.movie-card .icons > *:hover {
+  color: #333333;
+}
+
+/* Centering h2 heading */
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+}
+`
+
+;
 
 const MovieList = ({ showFavorites }) => {
   const dispatch = useDispatch();
@@ -156,8 +158,6 @@ const MovieList = ({ showFavorites }) => {
               <div className="icons">
                 <FontAwesomeIcon icon={faTrash} onClick={() => handleDelete(movie.id)} />
                 <FontAwesomeIcon icon={faEdit} onClick={() => handleEdit(movie)} />
-               
-                {/* Toggle button for watched status */}
                 <FontAwesomeIcon
                   icon={movie.watched ? faEye : faEyeSlash}
                   onClick={() => dispatch(toggleWatched(movie.id))}
